@@ -35,8 +35,42 @@ const Auth = (props) => {
     false
   );
 
+  const switchModeHandler = () => {
+    if (!isLoginMode) {
+      // Remember this runs if it's in login mode!
+      setFormData(
+        {
+          ...formState.inputs,
+          name: undefined,
+          image: undefined,
+        },
+        formState.inputs.email.isValid && formState.inputs.password.isValid
+      );
+    } else {
+      // And this runs if it's in signup mode!
+      setFormData(
+        {
+          ...formState.inputs,
+          name: {
+            value: "",
+            isValid: false,
+          },
+          image: {
+            value: null,
+            isValid: false,
+          },
+        },
+        false
+      );
+    }
+
+    setIsLoginMode((prevMode) => !prevMode);
+  };
+
   const authSubmitHandler = async (event) => {
     event.preventDefault();
+
+    console.log(formState.inputs);
 
     if (isLoginMode) {
       try {
@@ -74,33 +108,6 @@ const Auth = (props) => {
     }
   };
 
-  const switchModeHandler = () => {
-    if (!isLoginMode) {
-      // Remember this runs if it's in login mode!
-      setFormData(
-        {
-          ...formState.inputs,
-          name: undefined,
-        },
-        formState.inputs.email.isValid && formState.inputs.password.isValid
-      );
-    } else {
-      // And this runs if it's in signup mode!
-      setFormData(
-        {
-          ...formState.inputs,
-          name: {
-            value: "",
-            isValid: false,
-          },
-        },
-        false
-      );
-    }
-
-    setIsLoginMode((prevMode) => !prevMode);
-  };
-
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
@@ -120,7 +127,9 @@ const Auth = (props) => {
               onInput={inputHandler}
             />
           )}
-          {!isLoginMode && <ImageUpload center id="image" />}
+          {!isLoginMode && (
+            <ImageUpload center id="image" onInput={inputHandler} />
+          )}
           <Input
             id="email"
             element="input"
