@@ -1,3 +1,4 @@
+
 # yourPlace-MERN-CRUD-frontend-guide
 
 Welcome to the **yourPlace-MERN-CRUD-frontend-guide** repository! This repository demonstrates the process of building a frontend for a CRUD (Create, Read, Update, Delete) application using the MERN stack (MongoDB, Express.js, React, and Node.js). This guide walks you through the steps taken in each commit to create a functional frontend for managing places.
@@ -91,3 +92,5 @@ This project is based on the online course by Maximilian Schwarzmüller. The com
 This project is licensed under the [MIT License](LICENSE).
 
 Feel free to use, modify, and distribute the code for educational purposes or personal use. If you're using this repository as a reference while following the online course, make sure to respect the terms and conditions of the course and the original author.
+
+
