@@ -93,4 +93,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 Feel free to use, modify, and distribute the code for educational purposes or personal use. If you're using this repository as a reference while following the online course, make sure to respect the terms and conditions of the course and the original author.
 
-
+**Happy coding!**
